@@ -34,7 +34,6 @@ task autonomous()
 
 task usercontrol()
 {
-	// User control code here, inside the loop
 
 	while (true)
 	{
