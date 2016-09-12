@@ -14,7 +14,7 @@
 
 #include "Vex_Competition_Includes.c"
 #include "Drive.h"
-#include "Arm.h"
+//#include "Arm.h"
 
 void pre_auton()
 {
@@ -38,7 +38,7 @@ task usercontrol()
 	while (true)
 	{
 		drive ();
-		arm ();
+		//arm ();
 		updateOI ();
 	}
 }
