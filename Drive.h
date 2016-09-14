@@ -1,34 +1,27 @@
-#include "Macros.h"
+//#include "Macros.h"
 
 void drive()
 {
-	if(fwd > DEADZONE)
+	if(abs(vexRT[Ch2]) > 15)
 	{
-		motor[front_left_drive_m] = fwd;
-		motor[front_right_drive_m] = -fwd;
-		motor[back_left_drive_m] = fwd;
-		motor[back_right_drive_m] = -fwd;
+		motor[front_left_drive_m] = vexRT[Ch2];
+		motor[front_right_drive_m] = -vexRT[Ch2];
+		motor[back_left_drive_m] = -vexRT[Ch2];
+		motor[back_right_drive_m] = vexRT[Ch2];
 	}
-	else if(fwd < - DEADZONE)
+	else if(abs(vexRT[Ch1]) > 15)
 	{
-		motor[front_left_drive_m] = -fwd;
-		motor[front_right_drive_m] = fwd;
-		motor[back_left_drive_m] = -fwd;
-		motor[back_right_drive_m] = fwd;
+		motor[front_left_drive_m] = vexRT[Ch1];
+		motor[front_right_drive_m] = vexRT[Ch1];
+		motor[back_left_drive_m] = -vexRT[Ch1];
+		motor[back_right_drive_m] = -vexRT[Ch1];
 	}
-	else if(spin > DEADZONE)
+	else if(abs(vexRT[Ch4]) > 15)
 	{
-		motor[front_left_drive_m] = spin;
-		motor[front_right_drive_m] = spin;
-		motor[back_left_drive_m] = spin;
-		motor[back_right_drive_m] = spin;
-	}
-	else if(strafe > DEADZONE)
-	{
-		motor[front_left_drive_m] = -strafe;
-		motor[front_right_drive_m] = strafe;
-		motor[back_left_drive_m] = strafe;
-		motor[back_right_drive_m] = -strafe;
+		motor[front_left_drive_m] = vexRT[Ch4];
+		motor[front_right_drive_m] = vexRT[Ch4];
+		motor[back_left_drive_m] = vexRT[Ch4];
+		motor[back_right_drive_m] = vexRT[Ch4];
 	}
 	else
 	{
