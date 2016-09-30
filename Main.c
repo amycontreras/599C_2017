@@ -42,6 +42,9 @@ task usercontrol()
 		drive ();
 		pistons ();
 		arm ();
-		//	updateOI ();
+
+
+
+		updateOI ();
 	}
 }
