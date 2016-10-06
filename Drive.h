@@ -1,25 +1,15 @@
-//#include "Macros.h"
-
 int driveY = 0;
 int driveX = 0;
 int strafe = 0;
 int DEADZONE = 15;
 
-void updateOI()
+void driveVariables()
 {
 	driveY = vexRT[Ch2];
 	driveX = vexRT[Ch4];
 	strafe = vexRT[Ch1];
 }
 
-/*
-void updateDriveMotors(int front, int back, int left, int right)
-{
-		motor[front_left_drive_m] = front && left;
-		motor[front_right_drive_m] = front && right;
-		motor[back_left_drive_m] = back && left;
-		motor[back_right_drive_m] = back && right;
-}*/
 
 void drive()
 {
