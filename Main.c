@@ -16,8 +16,8 @@
 #pragma userControlDuration(120)
 
 #include "Vex_Competition_Includes.c"   // Main competition background code provided by ROBOTC for VEX Robotics.
-#include "Drive.h"
-#include "Arm.h"
+#include "Drive.h"											// Including the Drive.h file.
+#include "Arm.h"												// Including the Arm.h file.
 
 void pre_auton()
 {
