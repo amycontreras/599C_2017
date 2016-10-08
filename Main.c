@@ -18,6 +18,7 @@
 #include "Vex_Competition_Includes.c"   // Main competition background code provided by ROBOTC for VEX Robotics.
 #include "Drive.h"											// Including the Drive.h file.
 #include "Arm.h"												// Including the Arm.h file.
+#include "Auto.h"
 
 void pre_auton()
 {
@@ -31,7 +32,7 @@ void pre_auton()
 
 task autonomous()
 {
-	AutonomousCodePlaceholderForTesting();
+	autonono();
 }
 
 
