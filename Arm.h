@@ -17,7 +17,6 @@ void armVariables()
 	clawClose = vexRT[Btn8L];
 }
 
-
 // This function is essentially a shortcut for our arm code.
 // It sets the motors all to the same speed, so once the function
 // is used elsewhere, all motors move at the same directed speed.
@@ -41,7 +40,8 @@ void updateClawMotors(int speed)
 // This is the actual code for the arm. It checks whether or not
 // button 6U or 6D is pressed on the joystick (6U runs the motors
 // forward, 6D in reverse) and then acts accordingly. If neither
-// buttons are pressed, the arm motors do not move.
+// buttons are pressed, the arm motors do not move. The same
+// layout is mirrored with the wrist and claw functions below.
 void arm ()
 {
 	if(armUp == 1)
