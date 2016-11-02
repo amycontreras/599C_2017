@@ -50,6 +50,10 @@ void leftAuto()
 }
 
 
+// There is currently a warning error for this function
+// (the yellow X) as the robot is not processing this code.
+// Only one autonomous is used at a time, so the other one
+// will have a warning error due to being unues at the time.
 void rightAuto()
 {
 	updateArmMotors(-70);												//release arm
