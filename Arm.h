@@ -6,7 +6,7 @@ int wristDown = 0;
 int clawOpen = 0;
 int clawClose = 0;
 int armPot = 0;
-int theta = 0;//DESIRED VAL
+int theta = 185;//DESIRED VAL
 
 // UPDATING ARM VARIABLES
 void armVariables()
