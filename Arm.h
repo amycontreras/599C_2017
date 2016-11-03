@@ -5,6 +5,8 @@ int wristUp = 0;
 int wristDown = 0;
 int clawOpen = 0;
 int clawClose = 0;
+int armPot = 0;
+int theta = 0;//DESIRED VAL
 
 // UPDATING ARM VARIABLES
 void armVariables()
@@ -15,6 +17,7 @@ void armVariables()
 	wristDown = vexRT[Btn5D];
 	clawOpen = vexRT[Btn8R];
 	clawClose = vexRT[Btn8L];
+	armPot = SensorValue[pot];
 }
 
 // This function is essentially a shortcut for our arm code.
@@ -44,30 +47,33 @@ void updateClawMotors(int speed)
 // layout is mirrored with the wrist and claw functions below.
 void arm ()
 {
-	if(armUp == 1)
-		updateArmMotors(127);
-	else if(armDown == 1)
-		updateArmMotors(-127);
-	else
+	if(armPot > theta)
+	{
+		if(armUp == 1)
+			updateArmMotors(127);
+		else if(armDown == 1)
+			updateArmMotors(-127);
+	}
+	else if(armPot < theta || armPot == theta)
 		updateArmMotors(0);
 }
 
 void wrist()
 {
-		if(wristUp == 1)
-			updateWristMotors(127);
-		else if(wristDown ==1)
-			updateWristMotors(-127);
-		else
-			updateWristMotors(0);
+	if(wristDown == 1)
+		updateWristMotors(-127);
+	else if(wristUp == 1)
+		updateWristMotors(127);
+	else
+		updateWristMotors(0);
 }
 
 void claw()
 {
-		if(clawOpen == 1)
-			updateClawMotors(127);
-		else if(clawClose == 1)
-			updateClawMotors(-127);
-		else
-			updateClawMotors(0);
+	if(clawOpen == 1)
+		updateClawMotors(127);
+	else if(clawClose == 1)
+		updateClawMotors(-127);
+	else
+		updateClawMotors(0);
 }
