@@ -47,14 +47,11 @@ void updateClawMotors(int speed)
 // layout is mirrored with the wrist and claw functions below.
 void arm ()
 {
-	if(armPot > theta)
-	{
-		if(armUp == 1)
-			updateArmMotors(127);
-		else if(armDown == 1)
-			updateArmMotors(-127);
-	}
-	else if(armPot < theta || armPot == theta)
+	if(armUp == 1)
+		updateArmMotors(127);
+	else if(armDown == 1)
+		updateArmMotors(-127);
+	else
 		updateArmMotors(0);
 }
 
@@ -71,9 +68,9 @@ void wrist()
 void claw()
 {
 	if(clawOpen == 1)
-		updateClawMotors(127);
+		updateClawMotors(63);
 	else if(clawClose == 1)
-		updateClawMotors(-127);
+		updateClawMotors(-63);
 	else
 		updateClawMotors(0);
 }
