@@ -7,14 +7,16 @@ int DEADZONE = 15;
 // INITIALIZING DRIVE VARIABLES
 int driveY = 0;
 int driveX = 0;
-int strafe = 0;
+int strafeR = 0;
+int strafeL = 0;
 
 // UDPATING DRIVE VARIABLES
 void driveVariables()
 {
-	driveY = vexRT[Ch2];
-	driveX = vexRT[Ch4];
-	strafe = vexRT[Ch1];
+	driveY = vexRT[Ch3Xmtr2];
+	driveX = vexRT[Ch1Xmtr2];
+	strafeL = vexRT[Btn8LXmtr2];
+	strafeR = vexRT[Btn8RXmtr2];
 }
 
 // This robot's physical structure requires holonomic drive code.
@@ -27,7 +29,7 @@ void drive()
 	// Notice how driveY must be greater than the strafing joystick to
 	// move. This eliminates one movement overriding the other, and
 	// creates smooth transitions between fwd/rev driving and strafing.
-	if(abs(driveY) > DEADZONE && abs(driveY) > abs(strafe))	// FWD REV
+	if(abs(driveY) > DEADZONE)	// FWD REV
 	{
 		motor[front_left_drive_m] = driveY;
 		motor[front_right_drive_m] = -driveY;
@@ -36,17 +38,24 @@ void drive()
 	}
 	else if(abs(driveX) > 15) 															// TURN
 	{
-		motor[front_left_drive_m] = -driveX;
-		motor[front_right_drive_m] = -driveX;
-		motor[back_left_drive_m] = driveX;
-		motor[back_right_drive_m] = driveX;
+		motor[front_left_drive_m] = driveX;
+		motor[front_right_drive_m] = driveX;
+		motor[back_left_drive_m] = -driveX;
+		motor[back_right_drive_m] = -driveX;
 	}
-	else if(abs(strafe) > 15)																// STRAFE
+	else if(strafeR == 1)																// STRAFE
 	{
-		motor[front_left_drive_m] = strafe;
-		motor[front_right_drive_m] = strafe;
-		motor[back_left_drive_m] = strafe;
-		motor[back_right_drive_m] = strafe;
+		motor[front_left_drive_m] = 127;
+		motor[front_right_drive_m] = 127;
+		motor[back_left_drive_m] = 127;
+		motor[back_right_drive_m] = 127;
+	}
+	else if(strafeL == 1)
+	{
+		motor[front_left_drive_m] = -127;
+		motor[front_right_drive_m] = -127;
+		motor[back_left_drive_m] = -127;
+		motor[back_right_drive_m] = -127;
 	}
 	else																										// STOP
 	{
