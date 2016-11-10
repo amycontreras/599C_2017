@@ -37,7 +37,6 @@ void updateWristMotors(int speed)
 
 void updateClawMotors(int speed)
 {
-	motor[left_claw] = -speed;
 	motor[right_claw] = speed;
 }
 // This is the actual code for the arm. It checks whether or not
@@ -48,9 +47,9 @@ void updateClawMotors(int speed)
 void arm ()
 {
 	if(armUp == 1)
-		updateArmMotors(127);
-	else if(armDown == 1)
 		updateArmMotors(-127);
+	else if(armDown == 1)
+		updateArmMotors(127);
 	else
 		updateArmMotors(0);
 }
@@ -68,9 +67,9 @@ void wrist()
 void claw()
 {
 	if(clawOpen == 1)
-		updateClawMotors(63);
+		updateClawMotors(127);
 	else if(clawClose == 1)
-		updateClawMotors(-63);
+		updateClawMotors(-127);
 	else
 		updateClawMotors(0);
 }
