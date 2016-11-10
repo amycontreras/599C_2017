@@ -1,10 +1,59 @@
+/*
+LEFT FIELD
+	raise arm
+	drive forward
+	strafe left
+	drive forward
+	strafe right till end?
+*/
+
+
+
+void fwdAuto()
+{
+	// open claw .5s
+	updateClawMotors(127);
+	wait1Msec(500);
+	updateClawMotors(0);
+
+	//raise arm 1s
+	updateArmMotors(127);
+	wait1Msec(1000);
+	updateArmMotors(0);
+
+	// move wrist up 1s
+	updateWristMotors(-127);
+	wait1Msec(1000);
+	updateWristMotors(0);
+
+	//drive fwd 2.5s
+	motor[front_left_drive_m] = 95;
+	motor[front_right_drive_m] = -95;
+	motor[back_left_drive_m] = -95;
+	motor[back_right_drive_m] = 95;
+	wait1Msec(2500);
+	motor[front_left_drive_m] = 0;							//stop
+	motor[front_right_drive_m] = 0;
+	motor[back_left_drive_m] = 0;
+	motor[back_right_drive_m] = 0;
+}
+
+
 void leftAuto()
 {
-	updateArmMotors(-70);												//release arm
-	wait1Msec(3500);
-	updateArmMotors(0);													// arm is up, in place
-	updateWristMotors(70);
-	wait1Msec(2000);
+	// open claw .5s
+	updateClawMotors(127);
+	wait1Msec(500);
+	updateClawMotors(0);
+
+	//raise arm 1s
+	updateArmMotors(127);
+	wait1Msec(1000);
+	updateArmMotors(0);
+
+	// move wrist up 1s
+	updateWristMotors(-127);
+	wait1Msec(1000);
 	updateWristMotors(0);
 
 	motor[front_left_drive_m] = -85;						//strafe left	1.2 sec
@@ -59,9 +108,20 @@ void leftAuto()
 // will have a warning error due to being unues at the time.
 void rightAuto()
 {
-	updateArmMotors(-70);											//release arm
-	wait1Msec(3500);
-	updateArmMotors(0);										  	// arm is up, in place
+	// open claw .5s
+	updateClawMotors(127);
+	wait1Msec(500);
+	updateClawMotors(0);
+
+	//raise arm 1s
+	updateArmMotors(127);
+	wait1Msec(1000);
+	updateArmMotors(0);
+
+	// move wrist up 1s
+	updateWristMotors(-127);
+	wait1Msec(1000);
+	updateWristMotors(0);
 
 	motor[front_left_drive_m] = 85;				   //strafe right	1.2 sec
 	motor[front_right_drive_m] = 85;
