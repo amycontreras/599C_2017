@@ -21,11 +21,6 @@ void fwdAuto()
 	wait1Msec(1000);
 	updateArmMotors(0);
 
-	// move wrist up 1s
-	updateWristMotors(-127);
-	wait1Msec(1000);
-	updateWristMotors(0);
-
 	//drive fwd 2.5s
 	motor[front_left_drive_m] = 95;
 	motor[front_right_drive_m] = -95;
@@ -51,10 +46,6 @@ void leftAuto()
 	wait1Msec(1000);
 	updateArmMotors(0);
 
-	// move wrist up 1s
-	updateWristMotors(-127);
-	wait1Msec(1000);
-	updateWristMotors(0);
 
 	motor[front_left_drive_m] = -85;						//strafe left	1.2 sec
 	motor[front_right_drive_m] = -85;
@@ -118,10 +109,6 @@ void rightAuto()
 	wait1Msec(1000);
 	updateArmMotors(0);
 
-	// move wrist up 1s
-	updateWristMotors(-127);
-	wait1Msec(1000);
-	updateWristMotors(0);
 
 	motor[front_left_drive_m] = 85;				   //strafe right	1.2 sec
 	motor[front_right_drive_m] = 85;
