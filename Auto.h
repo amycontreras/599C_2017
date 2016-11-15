@@ -1,14 +1,3 @@
-/*
-LEFT FIELD
-	raise arm
-	drive forward
-	strafe left
-	drive forward
-	strafe right till end?
-*/
-
-
-
 void fwdAuto()
 {
 	// open claw .5s
