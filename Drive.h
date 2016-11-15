@@ -13,10 +13,10 @@ int strafeL = 0;
 // UDPATING DRIVE VARIABLES
 void driveVariables()
 {
-	driveY = vexRT[Ch3Xmtr2];
-	driveX = vexRT[Ch1Xmtr2];
-	strafeL = vexRT[Btn8LXmtr2];
-	strafeR = vexRT[Btn8RXmtr2];
+	driveY = vexRT[Ch3];
+	driveX = vexRT[Ch1];
+	strafeL = vexRT[Btn8L];
+	strafeR = vexRT[Btn8R];
 }
 
 // This robot's physical structure requires holonomic drive code.
