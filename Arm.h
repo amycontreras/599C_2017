@@ -14,8 +14,8 @@ void armVariables()
 	armDown = vexRT[Btn6D];
 	wristUp = vexRT[Btn5U];
 	wristDown = vexRT[Btn5D];
-	clawOpen = vexRT[Btn8R];
-	clawClose = vexRT[Btn8L];
+	clawOpen = vexRT[Btn8U];
+	clawClose = vexRT[Btn8D];
 }
 
 // This function is essentially a shortcut for our arm code.
@@ -33,12 +33,13 @@ void updateArmMotors(int speed)
 void updateClawMotors(int speed)
 {
 	motor[right_claw] = speed;
+	motor[left_claw] = speed;
 }
 // This is the actual code for the arm. It checks whether or not
 // button 6U or 6D is pressed on the joystick (6U runs the motors
 // forward, 6D in reverse) and then acts accordingly. If neither
 // buttons are pressed, the arm motors do not move. The same
-// layout is mirrored with the wrist and claw functions below.
+// layout is mirrored with the claw function below.
 void arm ()
 {
 	if(armUp == 1)
