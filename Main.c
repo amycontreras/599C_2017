@@ -33,7 +33,10 @@ void pre_auton()
 
 task autonomous()
 {
-	 newAuto();
+	 middleAuto();
+	 //fwdAuto();
+	 //rightAuto();
+	 //leftAuto();
 }
 
 task
