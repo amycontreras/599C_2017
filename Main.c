@@ -34,9 +34,6 @@ void pre_auton()
 task autonomous()
 {
 	 newAuto();
-	//fwdAuto();
-	//leftAuto(); 	// STRAFES LEFT 			RIGHT SIDE OF FIELD
-	//rightAuto();  // STRAFES RIGHT 			LEFT SIDE OF FIELD
 }
 
 task
