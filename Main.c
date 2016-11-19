@@ -33,10 +33,13 @@ void pre_auton()
 
 task autonomous()
 {
-	 middleAuto();
-	 //fwdAuto();
-	 //rightAuto();
-	 //leftAuto();
+	 //middleAuto();	//MIDDLE OF FIELD
+	 //fwdAuto();			DRIVES FWD
+	 //rightAuto(); 	RIGHT  OF FIELD
+	 //leftAuto();		LEFT   OF FIELD
+//	totalLeftAuto();
+
+//	doLeft();
 }
 
 task
