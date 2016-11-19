@@ -312,28 +312,74 @@ void totalRightAuto()
 void doLeft()
 {
 	driveForward(127);
-	Wait1Msec(1000);
+	wait1Msec(1000);
 	driveForward(0);
 
-	strafeLeft(95);
-	Wait1Msec(1000);
+	strafeLeft(100);
+	wait1Msec(2000);
 	strafeLeft(0);
 
-	strafeRight(95);
-	Wait1Msec(500);
+	strafeRight(100);
+	wait1Msec(1000);
 	strafeRight(0);
+
+	driveReverse(127);
+	wait1Msec(1500);
+	driveReverse(0);
+
 
 	updateClawMotors(-127);
 	wait1Msec(500);
 	updateClawMotors(0);
 
-		driveForward(127);
-	Wait1Msec(950);
+	driveForward(127);
+	wait1Msec(950);
 	driveForward(0);
 
 	updateArmMotors(-127);
-	wait1Msec(1000);
+	wait1Msec(800);
 	updateArmMotors(0);
 
+	driveForward(115);
+	wait1Msec(1500);
+	driveForward(0);
+
+}
+
+
+void doRight()
+{
+	driveForward(127);
+	wait1Msec(1000);
+	driveForward(0);
+
+	strafeRight(100);
+	wait1Msec(2000);
+	strafeRight(0);
+
+	strafeLeft(100);
+	wait1Msec(1000);
+	strafeLeft(0);
+
+	driveReverse(127);
+	wait1Msec(1500);
+	driveReverse(0);
+
+
+	updateClawMotors(-127);
+	wait1Msec(500);
+	updateClawMotors(0);
+
+	driveForward(127);
+	wait1Msec(950);
+	driveForward(0);
+
+	updateArmMotors(-127);
+	wait1Msec(800);
+	updateArmMotors(0);
+
+	driveForward(150);
+	wait1Msec(1500);
+	driveForward(0);
 
 }
