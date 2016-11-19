@@ -14,8 +14,8 @@ void armVariables()
 	armDown = vexRT[Btn6D];
 	wristUp = vexRT[Btn5U];
 	wristDown = vexRT[Btn5D];
-	clawOpen = vexRT[Btn8U];
-	clawClose = vexRT[Btn8D];
+	clawOpen = vexRT[Btn7L];
+	clawClose = vexRT[Btn7R];
 }
 
 // This function is essentially a shortcut for our arm code.
