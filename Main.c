@@ -40,6 +40,7 @@ task autonomous()
 //	totalLeftAuto();
 
 //	doLeft();
+		doRight();
 }
 
 task
