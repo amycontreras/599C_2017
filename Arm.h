@@ -1,8 +1,6 @@
 // INITIALIZING ARM VARIABLES
 int armUp = 0;
 int armDown = 0;
-int wristUp = 0;
-int wristDown = 0;
 int clawOpen = 0;
 int clawClose = 0;
 
@@ -12,10 +10,8 @@ void armVariables()
 {
 	armUp =	vexRT[Btn6U];
 	armDown = vexRT[Btn6D];
-	wristUp = vexRT[Btn5U];
-	wristDown = vexRT[Btn5D];
-	clawOpen = vexRT[Btn7L];
-	clawClose = vexRT[Btn7R];
+	clawOpen = vexRT[Btn5U];
+	clawClose = vexRT[Btn5D];
 }
 
 // This function is essentially a shortcut for our arm code.
