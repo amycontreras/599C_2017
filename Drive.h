@@ -7,16 +7,14 @@ int DEADZONE = 15;
 // INITIALIZING DRIVE VARIABLES
 int driveY = 0;
 int driveX = 0;
-int strafeR = 0;
-int strafeL = 0;
+int strafe = 0;
 
 // UDPATING DRIVE VARIABLES
 void driveVariables()
 {
 	driveY = vexRT[Ch2];
 	driveX = vexRT[Ch1];
-	strafeL = vexRT[Btn8L];
-	strafeR = vexRT[Btn8R];
+	strafe = vexRT[Ch4];
 }
 
 // This robot's physical structure requires holonomic drive code.
@@ -43,19 +41,12 @@ void drive()
 		motor[back_left_drive_m] = -driveX;
 		motor[back_right_drive_m] = -driveX;
 	}
-	else if(strafeR == 1)																// STRAFE
+	else if(abs(strafe) > DEADZONE && abs(strafe) > vexRT[Ch3])																// STRAFE
 	{
-		motor[front_left_drive_m] = 127;
-		motor[front_right_drive_m] = 127;
-		motor[back_left_drive_m] = 127;
-		motor[back_right_drive_m] = 127;
-	}
-	else if(strafeL == 1)
-	{
-		motor[front_left_drive_m] = -127;
-		motor[front_right_drive_m] = -127;
-		motor[back_left_drive_m] = -127;
-		motor[back_right_drive_m] = -127;
+		motor[front_left_drive_m] = strafe;
+		motor[front_right_drive_m] = strafe;
+		motor[back_left_drive_m] = strafe;
+		motor[back_right_drive_m] = strafe;
 	}
 	else																										// STOP
 	{
