@@ -213,16 +213,16 @@ void totalLeftAuto() //ALL STARS, BEG AT LEFT SIDE
 	driveReverse(0);
 
 	strafeLeft(100);				   //strafe LEFT	.3 sec TO TILE, OFF CORNER
-	wait1Msec(300);
+	wait1Msec(200);
 	strafeLeft(0);
 
 	driveReverse(100);			  //drive rev for .5 sec PASS FOOT
-	wait1Msec(500);
+	wait1Msec(400);
 	driveReverse(0);
 
 
 	strafeRight(100);			  	//strafe right TO FENCE
-	wait1Msec(300);
+	wait1Msec(200);
 	strafeRight(0);
 
 
@@ -232,11 +232,11 @@ void totalLeftAuto() //ALL STARS, BEG AT LEFT SIDE
 
 
 	strafeLeft(100);				   //strafe LEFT	1 sec TO TILE, OFF CORNER
-	wait1Msec(300);
+	wait1Msec(200);
 	strafeLeft(0);
 
 	driveReverse(100);			  //drive rev for 1 sec PASS FOOT
-	wait1Msec(500);
+	wait1Msec(400);
 	driveReverse(0);
 
 	strafeRight(100);				   //strafe right	1 sec TO FENCE
@@ -344,6 +344,10 @@ void doLeft()
 	wait1Msec(1500);
 	driveForward(0);
 
+	updateArmMotors(-127);
+	wait1Msec(1000);
+	updateArmMotors(0);
+
 }
 
 
@@ -378,8 +382,11 @@ void doRight()
 	wait1Msec(800);
 	updateArmMotors(0);
 
-	driveForward(150);
+	driveForward(115);
 	wait1Msec(1500);
 	driveForward(0);
 
+		updateArmMotors(-127);
+	wait1Msec(1000);
+	updateArmMotors(0);
 }
