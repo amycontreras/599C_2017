@@ -13,7 +13,7 @@ int strafeL = 0;
 // UDPATING DRIVE VARIABLES
 void driveVariables()
 {
-	driveY = vexRT[Ch3];
+	driveY = vexRT[Ch2];
 	driveX = vexRT[Ch1];
 	strafeL = vexRT[Btn8L];
 	strafeR = vexRT[Btn8R];
@@ -29,14 +29,14 @@ void drive()
 	// Notice how driveY must be greater than the strafing joystick to
 	// move. This eliminates one movement overriding the other, and
 	// creates smooth transitions between fwd/rev driving and strafing.
-	if(abs(driveY) > DEADZONE)	// FWD REV
+	if(abs(driveY) > DEADZONE && abs(driveY) > abs(driveX))	// FWD REV
 	{
 		motor[front_left_drive_m] = driveY;
 		motor[front_right_drive_m] = -driveY;
 		motor[back_left_drive_m] = -driveY;
 		motor[back_right_drive_m] = driveY;
 	}
-	else if(abs(driveX) > 15) 															// TURN
+	else if(abs(driveX) > 15 && abs(driveX) > abs(driveY)) 															// TURN
 	{
 		motor[front_left_drive_m] = driveX;
 		motor[front_right_drive_m] = driveX;
