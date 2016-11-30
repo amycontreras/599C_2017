@@ -39,8 +39,9 @@ task autonomous()
 	 //leftAuto();		LEFT   OF FIELD
 //	totalLeftAuto();
 
-	doLeft();
-//		doRight();
+
+doLeft();
+	//doRight();
 }
 
 task
