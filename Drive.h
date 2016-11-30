@@ -12,9 +12,9 @@ int strafe = 0;
 // UDPATING DRIVE VARIABLES
 void driveVariables()
 {
-	driveY = vexRT[Ch2];
-	driveX = vexRT[Ch1];
-	strafe = vexRT[Ch4];
+	driveY = vexRT[Ch3];
+	driveX = vexRT[Ch4];
+	strafe = vexRT[Ch1];
 }
 
 // This robot's physical structure requires holonomic drive code.
@@ -41,7 +41,7 @@ void drive()
 		motor[back_left_drive_m] = -driveX;
 		motor[back_right_drive_m] = -driveX;
 	}
-	else if(abs(strafe) > DEADZONE && abs(strafe) > vexRT[Ch3])																// STRAFE
+	else if(abs(strafe) > DEADZONE && abs(strafe) > vexRT[Ch2])																// STRAFE
 	{
 		motor[front_left_drive_m] = strafe;
 		motor[front_right_drive_m] = strafe;
