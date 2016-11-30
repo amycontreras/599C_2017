@@ -336,17 +336,13 @@ void doLeft()
 	wait1Msec(950);
 	driveForward(0);
 
+	driveForward(127);
+	wait1Msec(400);
 	updateArmMotors(-127);
 	wait1Msec(800);
 	updateArmMotors(0);
-
-	driveForward(115);
-	wait1Msec(1500);
+	wait1Msec(600);
 	driveForward(0);
-
-	updateArmMotors(-127);
-	wait1Msec(1000);
-	updateArmMotors(0);
 
 }
 
@@ -354,7 +350,7 @@ void doLeft()
 void doRight()
 {
 	driveForward(127);
-	wait1Msec(1000);
+	wait1Msec(1200);
 	driveForward(0);
 
 	strafeRight(100);
@@ -378,15 +374,24 @@ void doRight()
 	wait1Msec(950);
 	driveForward(0);
 
-	updateArmMotors(-127);
-	wait1Msec(800);
-	updateArmMotors(0);
+/*		motor[front_left_drive_m] = -90;
+		motor[front_right_drive_m] = -90;
+		motor[back_left_drive_m] = 90;
+		motor[back_right_drive_m] = 90;
+		wait1Msec(95);
+				motor[front_left_drive_m] = 0;
+		motor[front_right_drive_m] = 0;
+		motor[back_left_drive_m] = 0;
+		motor[back_right_drive_m] = 0;
+		*/
 
-	driveForward(115);
-	wait1Msec(1500);
+
+
+	driveForward(127);
+	wait1Msec(1300);
+	updateArmMotors(-127);
+	wait1Msec(600);
+	updateArmMotors(0);
 	driveForward(0);
 
-		updateArmMotors(-127);
-	wait1Msec(1000);
-	updateArmMotors(0);
 }
