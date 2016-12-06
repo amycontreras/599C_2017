@@ -1,3 +1,4 @@
+#pragma config(Sensor, in1,    clawpot,        sensorPotentiometer)
 #pragma config(Motor,  port1,           right_claw,    tmotorVex393_HBridge, openLoop)
 #pragma config(Motor,  port2,           front_left_drive_m, tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port3,           front_right_drive_m, tmotorVex393_MC29, openLoop)
@@ -33,14 +34,14 @@ void pre_auton()
 
 task autonomous()
 {
-	 //middleAuto();	//MIDDLE OF FIELD
-	 //fwdAuto();			DRIVES FWD
-	 //rightAuto(); 	RIGHT  OF FIELD
-	 //leftAuto();		LEFT   OF FIELD
-//	totalLeftAuto();
+	//middleAuto();	//MIDDLE OF FIELD
+	//fwdAuto();			DRIVES FWD
+	//rightAuto(); 	RIGHT  OF FIELD
+	//leftAuto();		LEFT   OF FIELD
+	//	totalLeftAuto();
 
 
-doLeft();
+	doLeft();
 	//doRight();
 }
 
@@ -55,5 +56,6 @@ usercontrol()
 		claw ();
 		armVariables ();
 		driveVariables ();
+
 	}
 }

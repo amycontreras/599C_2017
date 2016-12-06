@@ -349,44 +349,38 @@ void doLeft()
 
 void doRight()
 {
+													// drive forward
 	driveForward(127);
 	wait1Msec(1200);
 	driveForward(0);
 
+													// strafe right
 	strafeRight(100);
 	wait1Msec(2000);
 	strafeRight(0);
 
+													// strafe left
 	strafeLeft(100);
 	wait1Msec(1000);
 	strafeLeft(0);
 
+													// drive reverse
 	driveReverse(127);
 	wait1Msec(1500);
 	driveReverse(0);
 
-
+													// close claw
 	updateClawMotors(-127);
 	wait1Msec(500);
 	updateClawMotors(0);
 
+													// drive forward
 	driveForward(127);
 	wait1Msec(950);
 	driveForward(0);
 
-/*		motor[front_left_drive_m] = -90;
-		motor[front_right_drive_m] = -90;
-		motor[back_left_drive_m] = 90;
-		motor[back_right_drive_m] = 90;
-		wait1Msec(95);
-				motor[front_left_drive_m] = 0;
-		motor[front_right_drive_m] = 0;
-		motor[back_left_drive_m] = 0;
-		motor[back_right_drive_m] = 0;
-		*/
 
-
-
+													// drive forward while raising arm
 	driveForward(127);
 	wait1Msec(1300);
 	updateArmMotors(-127);
