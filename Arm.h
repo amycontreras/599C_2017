@@ -54,16 +54,17 @@ void claw()
 
 	if(clawOpen==1)
 	{
-		motor[right_claw] = (127);
+			motor[right_claw] = (127);
 	}
 	else if(clawClose ==1)
 	{
+	if(SensorValue[clawpot] > 900)
 		motor[right_claw] = (-127);
 	}
 	if(timeO)
 	{
 		updateClawMotors(-127);
-		wait1Msec(500);
+		wait1Msec(250);
 		updateClawMotors(0);
 	}
 	else
