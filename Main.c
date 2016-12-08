@@ -44,8 +44,7 @@ task autonomous()
 	//doRight();
 }
 
-task
-usercontrol()
+task usercontrol()
 {
 
 	while (true)
