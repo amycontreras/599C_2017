@@ -337,7 +337,7 @@ void doLeft()
 	driveForward(0);
 
 	driveForward(127);
-	wait1Msec(400);
+	wait1Msec(600);
 	updateArmMotors(-127);
 	wait1Msec(800);
 	updateArmMotors(0);
@@ -382,7 +382,7 @@ void doRight()
 
 													// drive forward while raising arm
 	driveForward(127);
-	wait1Msec(1300);
+	wait1Msec(1500);
 	updateArmMotors(-127);
 	wait1Msec(600);
 	updateArmMotors(0);

@@ -3,8 +3,6 @@ int armUp = 0;
 int armDown = 0;
 int clawOpen = 0;
 int clawClose = 0;
-int val = 910;
-int timeO = 0;
 
 
 // UPDATING ARM VARIABLES
@@ -14,7 +12,6 @@ void armVariables()
 	armDown = vexRT[Btn6D];
 	clawOpen = vexRT[Btn5U];
 	clawClose = vexRT[Btn5D];
-	timeO = vexRT[Btn8R];
 }
 
 // This function is essentially a shortcut for our arm code.
@@ -51,23 +48,10 @@ void arm ()
 
 void claw()
 {
-
 	if(clawOpen==1)
-	{
-			motor[right_claw] = (127);
-	}
+		updateClawMotors(127);
 	else if(clawClose ==1)
-	{
-	if(SensorValue[clawpot] > 900)
-		motor[right_claw] = (-127);
-	}
-	if(timeO)
-	{
 		updateClawMotors(-127);
-		wait1Msec(250);
-		updateClawMotors(0);
-	}
 	else
 		updateClawMotors(0);
-
 }
