@@ -34,21 +34,21 @@ void drive()
 		motor[back_left_drive_m] = -driveY;
 		motor[back_right_drive_m] = driveY;
 	}
-	else if(abs(driveX) > 15 && abs(driveX) > abs(driveY)) 															// TURN
+	else if(abs(driveX) > 15 && abs(driveX) > abs(driveY)) 								// TURN
 	{
 		motor[front_left_drive_m] = driveX;
 		motor[front_right_drive_m] = driveX;
 		motor[back_left_drive_m] = -driveX;
 		motor[back_right_drive_m] = -driveX;
 	}
-	else if(abs(strafe) > DEADZONE && abs(strafe) > vexRT[Ch2])																// STRAFE
+	else if(abs(strafe) > DEADZONE && abs(strafe) > vexRT[Ch2])						// STRAFE
 	{
 		motor[front_left_drive_m] = strafe;
 		motor[front_right_drive_m] = strafe;
 		motor[back_left_drive_m] = strafe;
 		motor[back_right_drive_m] = strafe;
 	}
-	else																										// STOP
+	else																																	// STOP
 	{
 		motor[front_left_drive_m] = 0;
 		motor[front_right_drive_m] = 0;
