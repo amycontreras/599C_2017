@@ -48,10 +48,14 @@ void arm ()
 
 void claw()
 {
-	if(clawOpen==1)
+	if(clawOpen == 1)
+	{
 		updateClawMotors(127);
-	else if(clawClose ==1)
+	}
+	else if(clawClose == 1)
+	{
 		updateClawMotors(-127);
+	}
 	else
 		updateClawMotors(0);
 }
