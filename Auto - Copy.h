@@ -1,5 +1,101 @@
 
-void strafeLeft(int speed)
+//void driveReverse(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]= 0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = -speed + turn;
+//			motor[front_right_drive_m] = speed + turn;
+//			motor[back_left_drive_m] = speed   - turn;
+//			motor[back_right_drive_m] = -speed - turn;
+//		}
+//	}
+//}
+
+//void driveForward(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = speed   + turn;
+//			motor[front_right_drive_m] = -speed + turn;
+//			motor[back_left_drive_m] = -speed   - turn;
+//			motor[back_right_drive_m] = speed   - turn;
+//		}
+//	}
+//}
+
+//void turnRight(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = speed;
+//			motor[front_right_drive_m] = speed;
+//			motor[back_left_drive_m] = -speed;
+//			motor[back_right_drive_m] = -speed;
+//		}
+//	}
+//}
+
+//void turnLeft(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = -speed;
+//			motor[front_right_drive_m] = -speed;
+//			motor[back_left_drive_m] = speed;
+//			motor[back_right_drive_m] = speed;
+//		}
+//	}
+//}
+
+//void strafeRight(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = speed + turn;
+//			motor[front_right_drive_m] = speed + turn;
+//			motor[back_left_drive_m] = speed - turn;
+//			motor[back_right_drive_m] = speed - turn;
+//		}
+//	}
+//}
+
+//void strafeLeft(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = -speed + turn;
+//			motor[front_right_drive_m] = -speed + turn;
+//			motor[back_left_drive_m] = -speed - turn;
+//			motor[back_right_drive_m] = -speed - turn;
+//		}
+//	}
+//}
+
+void strafeLeft(int speed , int turn)
 {
 	motor[front_left_drive_m] = -speed + turn;
 	motor[front_right_drive_m] = -speed + turn;
@@ -7,7 +103,7 @@ void strafeLeft(int speed)
 	motor[back_right_drive_m] = -speed - turn;
 }
 
-void strafeRight(int speed)
+void strafeRight(int speed, int turn )
 {
 	motor[front_left_drive_m] = speed + turn;
 	motor[front_right_drive_m] = speed + turn;
@@ -31,7 +127,7 @@ void turnRight(int speed)
 	motor[back_right_drive_m] = -speed;
 }
 
-void driveReverse(int speed)
+void driveReverse(int speed, int turn)
 {
 	motor[front_left_drive_m] = -speed + turn;
 	motor[front_right_drive_m] = speed + turn;
@@ -39,7 +135,7 @@ void driveReverse(int speed)
 	motor[back_right_drive_m] = -speed - turn;
 }
 
-void driveForward(int speed)
+void driveForward(int speed , int turn)
 {
 	motor[front_left_drive_m] = speed   + turn;
 	motor[front_right_drive_m] = -speed + turn;
@@ -52,6 +148,7 @@ void driveForward(int speed)
 
 void fwdAuto()
 {
+	b_engage_HH = false;  // if false turn = 0. else  KP*delta_cnt
 	//raise arm 1s
 	updateArmMotors(127);
 	wait1Msec(1000);
@@ -63,13 +160,19 @@ void fwdAuto()
 	updateClawMotors(0);
 
 	//drive fwd 2.5s
-	driveForward(95);
+	driveForward(95,turn);
 	wait1Msec(2500);
-	driveForward(0);
+	driveForward(0,turn);
 }
 
 void progChallenge()
 {
+	//b_engage_HH = true;
+	/*test = turn;
+	driveReverse(0, 2000000, 360);
+	b_engage_HH=false;			//1
+	wait1Msec(2000000);*/
+
 	//driveReverse(127, turn);			//1
 	//wait1Msec(600);
 	//driveReverse(0, turn);
@@ -94,9 +197,9 @@ void progChallenge()
 	wait1Msec(2000);
 	updateClawMotors(0);
 
-	driveReverse(127);			//6
+	driveReverse(127,turn);			//6
 	wait1Msec(1800);
-	driveReverse(0);
+	driveReverse(0, turn);
 
 	updateArmMotors(-127);	//7
 	wait1Msec(900);
@@ -116,17 +219,17 @@ void progChallenge()
 
 	//-------------------------------------------------------------------------------------------------------
 
-	driveForward(127);			//10
+	driveForward(127 , turn);			//10
 	wait1Msec(1800);
-	driveForward(0);
+	driveForward(0, turn);
 
 	updateClawMotors(-127);	//11
 	wait1Msec(500);
 	updateClawMotors(0);
 
-	driveReverse(127);			//12
+	driveReverse(127, turn);			//12
 	wait1Msec(2000);
-	driveReverse(0);
+	driveReverse(0, turn);
 
 	updateArmMotors(-127); 	//13
 	wait1Msec(1200);
@@ -142,17 +245,17 @@ void progChallenge()
 	wait1Msec(1200);
 	updateArmMotors(0);
 
-	driveForward(127);			//16
+	driveForward(127, turn);			//16
 	wait1Msec(1800);
-	driveForward(0);
+	driveForward(0, turn);
 
 	updateClawMotors(-127);	//16.5
 	wait1Msec(800);
 	updateClawMotors(0);
 
-	driveReverse(127);			//17
+	driveReverse(127, turn);			//17
 	wait1Msec(2000);
-	driveReverse(0);
+	driveReverse(0, turn);
 
 	updateArmMotors(-127); 	//18
 	wait1Msec(1000);
@@ -168,38 +271,37 @@ void progChallenge()
 	wait1Msec(500);
 	updateArmMotors(0);
 
-	driveForward(127);			//20
+	driveForward(127, turn);			//20
 	wait1Msec(800);
-	driveForward(0);
+	driveForward(0, turn);
 
-//	b_engage_HH=false;
+	b_engage_HH=false;
 	turnLeft(127);					//21
 	wait1Msec(450);
 	turnLeft(0);
 
-//	b_engage_HH=true;
+	b_engage_HH=true;
 	updateArmMotors(127);
 	wait1Msec(1000);
 	updateArmMotors(0);
 
 
-	driveForward(127);			//22
+	driveForward(127, turn);			//22
 	wait1Msec(2000);
-	driveForward(0);
+	driveForward(0, turn);
 
 	updateClawMotors(-127);	//23
 	wait1Msec(500);
 	updateClawMotors(0);
 
-//	b_engage_HH=false;
+	b_engage_HH=false;
 	turnRight(127);					//24
 	wait1Msec(1000);
 	turnRight(0);
-
-//	b_engage_HH=true;
-	driveReverse(127);			//25
+	b_engage_HH=true;
+	driveReverse(127, turn);			//25
 	wait1Msec(1000);
-	driveReverse(0);
+	driveReverse(0, turn);
 
 	updateArmMotors(-127); 	//26
 	wait1Msec(500);
@@ -217,17 +319,17 @@ void progChallenge()
 	wait1Msec(500);
 	updateClawMotors(0);
 
-	driveForward(127);			//30
+	driveForward(127, turn);			//30
 	wait1Msec(2000);
-	driveForward(0);
+	driveForward(0, turn);
 
 	updateClawMotors(-127);	//31
 	wait1Msec(500);
 	updateClawMotors(0);
 
-	driveReverse(127);			//32
+	driveReverse(127, turn);			//32
 	wait1Msec(1000);
-	driveReverse(0);
+	driveReverse(0, turn);
 
 	updateArmMotors(-127);	//33
 	wait1Msec(500);
@@ -241,33 +343,33 @@ void progChallenge()
 	wait1Msec(500);
 	updateArmMotors(0);
 
-	driveForward(127);			//36
+	driveForward(127, turn);			//36
 	wait1Msec(1000);
-	driveForward(0);
+	driveForward(0, turn);
 
-	strafeLeft(127);				//37
+	strafeLeft(127, turn);				//37
 	wait1Msec(1000);
-	strafeLeft(0);
+	strafeLeft(0, turn);
 
-	driveForward(127);			//38
+	driveForward(127, turn);			//38
 	wait1Msec(1000);
-	driveForward(0);
+	driveForward(0, turn);
 
 	updateClawMotors(-127);	//39
 	wait1Msec(500);
 	updateClawMotors(0);
 
-	driveReverse(127);			//40
+	driveReverse(127, turn);			//40
 	wait1Msec(1000);
-	driveReverse(0);
+	driveReverse(0, turn);
 
-	strafeLeft(127);				//41
+	strafeLeft(127, turn);				//41
 	wait1Msec(1000);
-	strafeLeft(0);
+	strafeLeft(0, turn);
 
-	driveReverse(127);			//42
+	driveReverse(127, turn);			//42
 	wait1Msec(1000);
-	driveReverse(0);
+	driveReverse(0, turn);
 
 	updateArmMotors(-127);	//43
 	wait1Msec(500);
@@ -281,37 +383,37 @@ void progChallenge()
 	wait1Msec(500);
 	updateArmMotors(0);
 
-	driveForward(127);			//46
+	driveForward(127, turn);			//46
 	wait1Msec(1000);
-	driveForward(0);
+	driveForward(0, turn);
 
-//	b_engage_HH=false;
+	b_engage_HH=false;
 	turnRight(127);					//47
 	wait1Msec(1000);
 	turnRight(0);
 
-//	b_engage_HH=true;
-	driveForward(127);			//48
+	b_engage_HH=true;
+	driveForward(127, turn);			//48
 	wait1Msec(1000);
-	driveForward(0);
+	driveForward(0, turn);
 
 	updateClawMotors(-127);	//49
 	wait1Msec(500);
 	updateClawMotors(0);
 
-	strafeRight(127);				//50
+	strafeRight(127, turn);				//50
 	wait1Msec(1000);
-	strafeRight(0);
+	strafeRight(0, turn);
 
-//	b_engage_HH=false;
+	b_engage_HH=false;
 	turnLeft(127);					//51
 	wait1Msec(1000);
 	turnLeft(0);
 
-//	b_engage_HH=true;
-	driveReverse(127);			//52
+	b_engage_HH=true;
+	driveReverse(127, turn);			//52
 	wait1Msec(1000);
-	driveReverse(0);
+	driveReverse(0, turn);
 
 	updateArmMotors(-127);	//53
 	wait1Msec(500);

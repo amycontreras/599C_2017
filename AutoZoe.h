@@ -1,4 +1,100 @@
 
+//void driveReverse(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]= 0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = -speed + turn;
+//			motor[front_right_drive_m] = speed + turn;
+//			motor[back_left_drive_m] = speed   - turn;
+//			motor[back_right_drive_m] = -speed - turn;
+//		}
+//	}
+//}
+
+//void driveForward(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = speed   + turn;
+//			motor[front_right_drive_m] = -speed + turn;
+//			motor[back_left_drive_m] = -speed   - turn;
+//			motor[back_right_drive_m] = speed   - turn;
+//		}
+//	}
+//}
+
+//void turnRight(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = speed;
+//			motor[front_right_drive_m] = speed;
+//			motor[back_left_drive_m] = -speed;
+//			motor[back_right_drive_m] = -speed;
+//		}
+//	}
+//}
+
+//void turnLeft(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = -speed;
+//			motor[front_right_drive_m] = -speed;
+//			motor[back_left_drive_m] = speed;
+//			motor[back_right_drive_m] = speed;
+//		}
+//	}
+//}
+
+//void strafeRight(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = speed + turn;
+//			motor[front_right_drive_m] = speed + turn;
+//			motor[back_left_drive_m] = speed - turn;
+//			motor[back_right_drive_m] = speed - turn;
+//		}
+//	}
+//}
+
+//void strafeLeft(int speed, int time_ms=20000,int dist=3600)
+//{
+//	time1[T1]=0;
+//	dist_cnt = 0;
+//	while(true)
+//	{
+//		if(time1[T1]<time_ms && abs(dist_cnt)<dist)
+//		{
+//			motor[front_left_drive_m] = -speed + turn;
+//			motor[front_right_drive_m] = -speed + turn;
+//			motor[back_left_drive_m] = -speed - turn;
+//			motor[back_right_drive_m] = -speed - turn;
+//		}
+//	}
+//}
+
 void strafeLeft(int speed)
 {
 	motor[front_left_drive_m] = -speed + turn;
@@ -52,6 +148,7 @@ void driveForward(int speed)
 
 void fwdAuto()
 {
+//	b_engage_HH = false;  // if false turn = 0. else  KP*delta_cnt
 	//raise arm 1s
 	updateArmMotors(127);
 	wait1Msec(1000);
@@ -70,6 +167,12 @@ void fwdAuto()
 
 void progChallenge()
 {
+	//b_engage_HH = true;
+	/*test = turn;
+	driveReverse(0, 2000000, 360);
+	b_engage_HH=false;			//1
+	wait1Msec(2000000);*/
+
 	//driveReverse(127, turn);			//1
 	//wait1Msec(600);
 	//driveReverse(0, turn);

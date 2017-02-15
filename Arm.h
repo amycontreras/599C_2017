@@ -3,6 +3,7 @@ int armUp = 0;
 int armDown = 0;
 int clawOpen = 0;
 int clawClose = 0;
+int wowButton = 0;
 
 
 // UPDATING ARM VARIABLES
@@ -12,6 +13,7 @@ void armVariables()
 	armDown = vexRT[Btn6D];
 	clawOpen = vexRT[Btn5U];
 	clawClose = vexRT[Btn5D];
+		wowButton = vexRT[Btn7U];
 }
 
 // This function is essentially a shortcut for our arm code.
@@ -28,7 +30,7 @@ void updateArmMotors(int speed)
 
 void updateClawMotors(int speed)
 {
-	motor[right_claw] = speed;
+	motor[right_claw] = -speed;
 	motor[left_claw] = speed;
 }
 // This is the actual code for the arm. It checks whether or not

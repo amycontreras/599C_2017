@@ -29,12 +29,12 @@ void drive()
 	// creates smooth transitions between fwd/rev driving and strafing.
 	if(abs(driveY) > DEADZONE && abs(driveY) > abs(driveX))	// FWD REV
 	{
-		motor[front_left_drive_m] = driveY;
+		motor[front_left_drive_m] = driveY; //testjoy ;
 		motor[front_right_drive_m] = -driveY;
 		motor[back_left_drive_m] = -driveY;
 		motor[back_right_drive_m] = driveY;
 	}
-	else if(abs(driveX) > 15 && abs(driveX) > abs(driveY)) 								// TURN
+	else if(abs(driveX) > DEADZONE && abs(driveX) > abs(driveY)) 					// TURN
 	{
 		motor[front_left_drive_m] = driveX;
 		motor[front_right_drive_m] = driveX;
