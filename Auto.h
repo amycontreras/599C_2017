@@ -1,18 +1,18 @@
 
 void strafeLeft(int speed)
 {
-	motor[front_left_drive_m] = -speed + turn;
-	motor[front_right_drive_m] = -speed + turn;
-	motor[back_left_drive_m] = -speed - turn;
-	motor[back_right_drive_m] = -speed - turn;
+	motor[front_left_drive_m] = -speed;;
+	motor[front_right_drive_m] = -speed;
+	motor[back_left_drive_m] = -speed;
+	motor[back_right_drive_m] = -speed;
 }
 
 void strafeRight(int speed)
 {
-	motor[front_left_drive_m] = speed + turn;
-	motor[front_right_drive_m] = speed + turn;
-	motor[back_left_drive_m] = speed - turn;
-	motor[back_right_drive_m] = speed - turn;
+	motor[front_left_drive_m] = speed;
+	motor[front_right_drive_m] = speed;
+	motor[back_left_drive_m] = speed;
+	motor[back_right_drive_m] = speed;
 }
 
 void turnLeft(int speed)
@@ -33,18 +33,18 @@ void turnRight(int speed)
 
 void driveReverse(int speed)
 {
-	motor[front_left_drive_m] = -speed + turn;
-	motor[front_right_drive_m] = speed + turn;
-	motor[back_left_drive_m] = speed   - turn;
-	motor[back_right_drive_m] = -speed - turn;
+	motor[front_left_drive_m] = -speed;
+	motor[front_right_drive_m] = speed;
+	motor[back_left_drive_m] = speed;
+	motor[back_right_drive_m] = -speed;
 }
 
 void driveForward(int speed)
 {
-	motor[front_left_drive_m] = speed   + turn;
-	motor[front_right_drive_m] = -speed + turn;
-	motor[back_left_drive_m] = -speed   - turn;
-	motor[back_right_drive_m] = speed   - turn;
+	motor[front_left_drive_m] = speed;
+	motor[front_right_drive_m] = -speed;
+	motor[back_left_drive_m] = -speed;
+	motor[back_right_drive_m] = speed;
 }
 
 
