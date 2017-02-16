@@ -1,7 +1,7 @@
 
 void strafeLeft(int speed)
 {
-	motor[front_left_drive_m] = -speed;;
+	motor[front_left_drive_m] = -speed;
 	motor[front_right_drive_m] = -speed;
 	motor[back_left_drive_m] = -speed;
 	motor[back_right_drive_m] = -speed;
