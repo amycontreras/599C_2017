@@ -70,7 +70,7 @@ bool straightYet = false;
 void gyroTesting()
 {
 	//if the robot begins to veer left AND if you are trying to go
-	//forward, turn right a little until you go straight again
+	//forward, turn right a little until you go straight again??
 	if((abs(SensorValue[gyro]) > veerLeft) && (abs(driveY) > 15) && straightYet)
 	{
 		motor[front_left_drive_m] = 127;
@@ -81,6 +81,8 @@ void gyroTesting()
 		wait1Msec(500);
 		straightYet = true;
 	}
+	//if the robot begins to veer right AND if you are trying to go
+	//forward, turn right a little until you go straight again??
 	else if((abs(SensorValue[gyro]) > veerRight) && (abs(driveY) > 15) && straightYet)
 	{
 		motor[front_left_drive_m] = -127;
