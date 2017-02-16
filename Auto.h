@@ -1,3 +1,22 @@
+/*void gyroYDrive(int speed) //autonomous forward drive
+{
+	while(abs(SensorValue[gyro]) > veerLeft)
+	{	//motor values to turn right
+		motor[front_left_drive_m] = speed;
+		motor[front_right_drive_m] = speed;
+		motor[back_left_drive_m] = -speed;
+		motor[back_right_drive_m] = -speed;
+	}
+	while(abs(SensorValue[gyro]) > veerRight)
+	{	//motor values to turn left
+		motor[front_left_drive_m] = -speed;
+		motor[front_right_drive_m] = -speed;
+		motor[back_left_drive_m] = speed;
+		motor[back_right_drive_m] = speed;
+	}
+}
+*/
+
 
 void strafeLeft(int speed)
 {
@@ -172,12 +191,12 @@ void progChallenge()
 	wait1Msec(800);
 	driveForward(0);
 
-//	b_engage_HH=false;
+	//	b_engage_HH=false;
 	turnLeft(127);					//21
 	wait1Msec(450);
 	turnLeft(0);
 
-//	b_engage_HH=true;
+	//	b_engage_HH=true;
 	updateArmMotors(127);
 	wait1Msec(1000);
 	updateArmMotors(0);
@@ -191,12 +210,12 @@ void progChallenge()
 	wait1Msec(500);
 	updateClawMotors(0);
 
-//	b_engage_HH=false;
+	//	b_engage_HH=false;
 	turnRight(127);					//24
 	wait1Msec(1000);
 	turnRight(0);
 
-//	b_engage_HH=true;
+	//	b_engage_HH=true;
 	driveReverse(127);			//25
 	wait1Msec(1000);
 	driveReverse(0);
@@ -285,12 +304,12 @@ void progChallenge()
 	wait1Msec(1000);
 	driveForward(0);
 
-//	b_engage_HH=false;
+	//	b_engage_HH=false;
 	turnRight(127);					//47
 	wait1Msec(1000);
 	turnRight(0);
 
-//	b_engage_HH=true;
+	//	b_engage_HH=true;
 	driveForward(127);			//48
 	wait1Msec(1000);
 	driveForward(0);
@@ -303,12 +322,12 @@ void progChallenge()
 	wait1Msec(1000);
 	strafeRight(0);
 
-//	b_engage_HH=false;
+	//	b_engage_HH=false;
 	turnLeft(127);					//51
 	wait1Msec(1000);
 	turnLeft(0);
 
-//	b_engage_HH=true;
+	//	b_engage_HH=true;
 	driveReverse(127);			//52
 	wait1Msec(1000);
 	driveReverse(0);

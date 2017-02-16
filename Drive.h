@@ -56,3 +56,41 @@ void drive()
 		motor[back_right_drive_m] = 0;
 	}
 }
+
+
+/**************************************************************************************/
+int veerLeft = 500;		//random val
+int veerRight = 900;		//random val
+//bool straightYet = false;
+void gyroTesting()
+{
+	//if the robot begins to veer left AND if you are trying to go
+	//forward, turn right a little until you go straight again??
+	if((abs(SensorValue[gyro]) > veerLeft) && (abs(vexRT[Ch3]) > 15)/* && straightYet*/)
+	{
+		motor[front_left_drive_m] = 127;
+		motor[front_right_drive_m] = 127;
+		motor[back_left_drive_m] = -127;
+		motor[back_right_drive_m] = -127;
+
+	//	wait1Msec(500);
+	//	straightYet = true;
+	}
+	//straightYet = false;
+	//if the robot begins to veer right AND if you are trying to go
+	//forward, turn right a little until you go straight again??
+	if((abs(SensorValue[gyro]) > veerRight) && (abs(vexRT[Ch3]) > 15)/* && straightYet*/)
+	{
+		motor[front_left_drive_m] = -127;
+		motor[front_right_drive_m] = -127;
+		motor[back_left_drive_m] = 127;
+		motor[back_right_drive_m] = 127;
+
+	//  wait1Msec(500);
+	//  straightYet = true;
+	}
+}
+
+*/
+
+//when arm val starts to go past a certain value then it begins to drive forward

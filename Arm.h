@@ -3,8 +3,6 @@ int armUp = 0;
 int armDown = 0;
 int clawOpen = 0;
 int clawClose = 0;
-int wowButton = 0;
-
 
 // UPDATING ARM VARIABLES
 void armVariables()
@@ -13,7 +11,6 @@ void armVariables()
 	armDown = vexRT[Btn6D];
 	clawOpen = vexRT[Btn5U];
 	clawClose = vexRT[Btn5D];
-	wowButton = vexRT[Btn7U];
 }
 
 // This function is essentially a shortcut for our arm code.
@@ -60,37 +57,4 @@ void claw()
 	}
 	else
 		updateClawMotors(0);
-}
-
-/************************************************************/
-
-int veerLeft = 1800;		//random val
-int veerRight = 1000;		//random val
-bool straightYet = false;
-void gyroTesting()
-{
-	//if the robot begins to veer left AND if you are trying to go
-	//forward, turn right a little until you go straight again??
-	if((abs(SensorValue[gyro]) > veerLeft) && (abs(driveY) > 15) && straightYet)
-	{
-		motor[front_left_drive_m] = 127;
-		motor[front_right_drive_m] = 127;
-		motor[back_left_drive_m] = -127;
-		motor[back_right_drive_m] = -127;
-
-		wait1Msec(500);
-		straightYet = true;
-	}
-	//if the robot begins to veer right AND if you are trying to go
-	//forward, turn right a little until you go straight again??
-	else if((abs(SensorValue[gyro]) > veerRight) && (abs(driveY) > 15) && straightYet)
-	{
-		motor[front_left_drive_m] = -127;
-		motor[front_right_drive_m] = -127;
-		motor[back_left_drive_m] = 127;
-		motor[back_right_drive_m] = 127;
-
-		wait1Msec(500);
-		straightYet = true;
-	}
 }

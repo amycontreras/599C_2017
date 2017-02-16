@@ -53,9 +53,10 @@ task usercontrol()
 	{
 		drive ();
 		arm ();
-		claw ();
+	 	claw ();
 		armVariables ();
 		driveVariables ();
-		wait1Msec(10);
+	//	gyroTesting();
+
 	}
 }
